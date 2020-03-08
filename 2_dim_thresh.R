@@ -2,7 +2,7 @@ if(!suppressWarnings(require(jpeg))){
   install.packages('jpeg')
   require(jpeg)
 }# 该包对.jpg的导入和导出效果很好。
-img<-readJPEG("C:\\users\\thinkpad\\Pictures\\shibie.jpg")# 必须转录地址。此处地址可更改。
+img<-readJPEG("picture.jpg")# 必须转录地址。此处地址可更改。
 img<-img[,,1]*0.3+img[,,2]*0.59+img[,,3]*0.11 # 将RGB转化为灰度矩阵
 thresh<-function(image,s,t){
   w<-dim(image)[1]
@@ -51,4 +51,4 @@ thresh<-function(image,s,t){
   out
 }
 image<-thresh(img,1/8*dim(image)[1],15)
-writeJPEG(image,sprintf("newpic3.jpg"))# 打印图像并保存至工作目录
+writeJPEG(image,sprintf("newpic.jpg"))# 打印图像并保存至工作目录
